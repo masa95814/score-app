@@ -4,19 +4,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase';
+import ENV from './env.json';
 
-var firebaseConfig = {
-  apiKey: "AIzaSyC37kOfKYcmMtQ1_y4CeUS-cvrT0M0B2lI",
-  authDomain: "scoreapp-444f4.firebaseapp.com",
-  databaseURL: "https://scoreapp-444f4.firebaseio.com",
-  projectId: "scoreapp-444f4",
-  storageBucket: "scoreapp-444f4.appspot.com",
-  messagingSenderId: "197374940798",
-  appId: "1:197374940798:web:b7ae984d05a901ea996a2f",
-  measurementId: "G-XJ6YPG1CNC"
+const config = {
+  apiKey:            ENV.FIREBASE_API_KEY,
+  authDomain:        ENV.FIREBASE_AUTH_DOMAIN,
+  databaseURL:       ENV.FIREBASE_DB_URL,
+  projectId:         ENV.FIREBASE_PRJ_ID,
+  storageBucket:     ENV.FIREBASE_STRAGE,
+  messagingSenderId: ENV.FIREBASE_SENDER_ID,
+  appId: ENV.FIREBASE_APP_ID,
+  measurementId: ENV.FIREBASE_MEASUREMENT_ID,
 };
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 firebase.analytics();
 
 ReactDOM.render(
